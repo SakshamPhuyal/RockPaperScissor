@@ -4,6 +4,7 @@ const choices=document.querySelectorAll(".choice");
 const msg= document.querySelector("#msg");
 const userScorep=document.querySelector("#user-score");
 const computerScorep=document.querySelector("#comp-score");
+const rest=document.querySelector(".restart");
 const generateChoice=()=>{
 const options=["rock","paper","scissors"];
 const randIdx=Math.floor(Math.random()*3);
@@ -47,4 +48,12 @@ choice.addEventListener("click",()=>{
     const userchoice=choice.getAttribute("id");
    playGame(userchoice);
 })
+});
+rest.addEventListener("click",()=>{
+    userScore=0;
+    computerScore=0;
+    userScorep.innerText=userScore;
+    computerScorep.innerText=computerScore;
+    msg.innerText="Pick your choice";  
+    msg.style.backgroundColor="black";
 });
