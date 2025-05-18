@@ -10,16 +10,16 @@ const options=["rock","paper","scissors"];
 const randIdx=Math.floor(Math.random()*3);
 return options[randIdx];
 };
-const showWinner=(userwin)=>{
+const showWinner=(userwin,userchoice,compchoice)=>{
     if(userwin){
         userScore++;
         userScorep.innerText=userScore;
-        msg.innerText="You win!";
+        msg.innerText=`You win! your ${userchoice} beats ${compchoice}`;
         msg.style.backgroundColor="green";
     }else{
        computerScore++;
        computerScorep.innerText=computerScore;    
-        msg.innerText="You lose."
+        msg.innerText=`You lose.${compchoice} beats your ${userchoice}`;
             msg.style.backgroundColor="red";
     }
 }
@@ -40,7 +40,7 @@ userwin=compchoice === "scissors"?false:true;
 else{
     userwin=compchoice==="rock"?false:true;
 }
-showWinner(userwin);
+showWinner(userwin,userchoice,compchoice);
     }
 };
 choices.forEach((choice)=>{
