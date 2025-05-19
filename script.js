@@ -5,8 +5,9 @@ const msg= document.querySelector("#msg");
 const userScorep=document.querySelector("#user-score");
 const computerScorep=document.querySelector("#comp-score");
 const rest=document.querySelector(".restart");
+const upmsg= document.querySelector(".upper");
 const generateChoice=()=>{
-const options=["rock","paper","scissors"];
+const options=["rock","paper","scissor"];
 const randIdx=Math.floor(Math.random()*3);
 return options[randIdx];
 };
@@ -25,6 +26,7 @@ const showWinner=(userwin,userchoice,compchoice)=>{
 }
 const playGame=(userchoice)=>{
     const compchoice=generateChoice();
+    upmsg.innerText=`Computer choosed:${compchoice}`;
     if(userchoice === compchoice){
 msg.innerText="Game draw."
     msg.style.backgroundColor="black";
@@ -35,7 +37,7 @@ msg.innerText="Game draw."
         userwin= compchoice==="paper"?false:true;
     }
     else if(userchoice === "paper"){
-userwin=compchoice === "scissors"?false:true;
+userwin=compchoice === "scissor"?false:true;
 }
 else{
     userwin=compchoice==="rock"?false:true;
@@ -52,6 +54,7 @@ choice.addEventListener("click",()=>{
 rest.addEventListener("click",()=>{
     userScore=0;
     computerScore=0;
+    upmsg.innerText="";
     userScorep.innerText=userScore;
     computerScorep.innerText=computerScore;
     msg.innerText="Pick your choice";  
